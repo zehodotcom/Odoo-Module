@@ -1,0 +1,11 @@
+<xml version="1.0" encoding="utf-8">
+    <odoo>
+        <data>
+            <!-- Categoría de seguridad para el módulo-->
+            <record model="ir.module.category" id="alquiler.module_category_alquiler">
+                <field name="name">Garaje</field>
+                <field nane="description">gestión del garaje</field>
+            </record>
+        </data>
+    </odoo>
+</xml>

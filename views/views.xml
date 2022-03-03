@@ -1,7 +1,7 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-<!--
+    <!--
     <record model="ir.ui.view" id="alquiler.list">
       <field name="name">Alquiler list</field>
       <field name="model">alquiler.alquiler</field>
@@ -16,7 +16,7 @@
 -->
 
     <!-- actions opening views on models -->
-<!--
+    <!--
     <record model="ir.actions.act_window" id="alquiler.action_window">
       <field name="name">Alquiler window</field>
       <field name="res_model">alquiler.alquiler</field>
@@ -25,7 +25,7 @@
 -->
 
     <!-- server action to the one above -->
-<!--
+    <!--
     <record model="ir.actions.server" id="alquiler.action_server">
       <field name="name">Alquiler server</field>
       <field name="model_id" ref="model_alquiler_alquiler"/>
@@ -41,20 +41,176 @@
 -->
 
     <!-- Top menu item -->
-<!--
+    <!--
     <menuitem name="Alquiler" id="alquiler.menu_root"/>
 -->
     <!-- menu categories -->
-<!--
+    <!--
     <menuitem name="Menu 1" id="alquiler.menu_1" parent="alquiler.menu_root"/>
     <menuitem name="Menu 2" id="alquiler.menu_2" parent="alquiler.menu_root"/>
 -->
     <!-- actions -->
-<!--
+    <!--
     <menuitem name="List" id="alquiler.menu_1_list" parent="alquiler.menu_1"
               action="alquiler.action_window"/>
     <menuitem name="Server to list" id="alquiler" parent="alquiler.menu_2"
               action="alquiler.action_server"/>
 -->
+
+    <!-- VISTAS DE CLIENTE -->
+    <record model="ir.ui.view" id="alquiler.cliente_list_view">
+      <field name="name">alquiler.cliente.view.tree</field>
+      <field name="model">alquiler.cliente</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name" />
+          <field name="apellidos" />
+          <field name="telefono" />
+          <field name="dni" />
+          <field name="edad" />
+          <field name="direccion" />
+          <field name="email" />
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="alquiler.cliente_form_view">
+      <field name="name">alquiler.cliente.view.form</field>
+      <field name="model">alquiler.cliente</field>
+      <field name="arch" type="xml">
+        <form string="Formulario de cliente">
+          <sheet>
+            <group>
+              <group>
+                <separator string="Informacion general" />
+                <field name="name" />
+                <field name="apellidos" />
+                <field name="telefono" />
+                <field name="dni" />
+                <field name="edad" />
+                <field name="direccion" />
+                <field name="email" />
+              </group>
+            </group>
+            <group>
+              <field name="alquiler_id" />
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- VISTAS DE ALQUILER -->
+    <record model="ir.ui.view" id="alquiler.alquiler_list_view">
+      <field name="name">alquiler.alquiler.view.tree</field>
+      <field name="model">alquiler.alquiler</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="fecha_entrega" />
+          <field name="fecha_devolucion" />
+          <field name="devuelto" />
+          <field name="precio" />
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="alquiler.alquiler_form_view">
+      <field name="name">alquiler.alquiler.view.form</field>
+      <field name="model">alquiler.alquiler</field>
+      <field name="arch" type="xml">
+        <form string="Formulario de alquiler">
+          <sheet>
+            <separator string="informacion del alquiler" />
+            <group>
+              <group>
+                <field name="fecha entrega" />
+                <field name="fecha devolucion" />
+                <field name="devuelto" />
+                <field name="precio" />
+              </group>
+            </group>
+            <group>
+              <field name="cliente_ids" />
+              <field name="vehiculo_ids " />
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- VISTAS DE VEHICULO -->
+    <record model="ir.ui.view" id="alquiler.vehiculo_list_view">
+      <field name="name">alquiler.vehiculo.view.tree</field>
+      <field name="model">alquiler.vehiculo</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name" />
+          <field name="modelo" />
+          <field name="construido" />
+          <field name="consumo" />
+          <field name="descripcion" />
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="alquiler.vehiculo_form_view">
+      <field name="name">alquiler.vehiculo.view.form</field>
+      <field name="model">alquiler.vehiculo</field>
+      <field name="arch" type="xml">
+        <form string="Formulario de vehiculo">
+          <sheet>
+            <separator string="Ficha del vehiculo" />
+
+            <group>
+              <group>
+                <field name="name" />
+                <field name="modelo" />
+                <field name="construido" />
+              </group>
+              <group>
+                <field name="consumo" />
+                <field name="descripción" />
+              </group>
+            </group>
+
+            <group>
+              <field name="vehiculo_ids" />
+            </group>
+
+
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- DEFINICIÓN DE MENÚS -->
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="alquiler.cliente_action_window">
+      <field name="name">Clientes</field>
+      <field name="res_model">alquiler.cliente</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="alquiler.alquiler_action_window">
+      <field name="name">Alquileres</field>
+      <field name="res_model">alquiler.alquiler</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="alquiler.vehiculo_action_window">
+      <field name="name">Vehiculos</field>
+      <field name="res_model">alquiler.vehiculo</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+    <menuitem name="Alquiler" id="alquiler.menu_root" />
+F
+    <!-- menu categories -->
+    <menuitem name="Cliente" id="alquiler.cliente_menu" parent="alquiler.menu_root" action="alquiler.cliente_action_window" />
+    <menuitem name="Alquiler" id="alquiler.alquiler_menu" parent="alquiler.menu_root" action="alquiler.alquiler_action_window" />
+    <menuitem name="Vehiculo" id="alquiler.vehiculo_menu" parent="alquiler.menu_root" action="alquiler.vehiculo_action_window" />
+
   </data>
 </odoo>
