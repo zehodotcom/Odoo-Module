@@ -1,2 +1,8 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_alquiler_alquiler,alquiler.alquiler,model_alquiler_alquiler,base.group_user,1,1,1,1
+access_alquiler_cliente_usuario,alquiler.cliente.usuario,model_alquiler_cliente,alquiler.group_alquiler_usuario,1,1,0,1 
+access_alquiler_alquiler_usuario,alquiler.alquiler.usuario,model_alquiler_alquiler,alquiler.group_alquiler_usuario,0,0,0,0 
+access_alquiler_vehiculo_usuario,alquiler.vehiculo.usuario,model_alquiler_vehiculo,alquiler.group_alquiler_usuario,1,0,0,0 
+access_alquiler_vehiculo_empleado,alquiler.vehiculo.empleado,model_alquiler_vehiculo,alquiler.group_alquiler_empleado,1,1,1,1 
+access_alquiler_alquiler_empleado,alquiler.alquiler.empleado,model_alquiler_alquiler,alquiler.group_alquiler_empleado,1,1,1,1 
+access_alquiler_cliente_empleado,alquiler.cliente.empleado,model_alquiler_cliente,alquiler.group_alquiler_empleado,1,1,1,1 
+  

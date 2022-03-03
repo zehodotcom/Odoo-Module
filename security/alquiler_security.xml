@@ -1,11 +1,29 @@
-<xml version="1.0" encoding="utf-8">
+<?xml version='1.0' encoding='UTF-8'?>
     <odoo>
         <data>
-            <!-- Categoría de seguridad para el módulo-->
+            <!-- Categoría de seguridad para el módulo -->
             <record model="ir.module.category" id="alquiler.module_category_alquiler">
                 <field name="name">Garaje</field>
                 <field nane="description">gestión del garaje</field>
+                <field name="sequence">40</field>
+            </record>
+
+            <!-- Usuario -->
+            <record model="res.groups" id="group_alquiler_usuario">
+                <field name="name">usuario</field>
+                <field name="category_id" ref="alquiler.module_category_alquiler" />
+                <field name="comment">Usuario que puede ver los vehiculos</field>
+            </record>
+
+            <!-- Empleado -->
+            <record model="res.groups" id="group_alquiler_empleado">
+                <field name="name">empleado</field>
+                <field name="category_id" ref="alquiler.module_category_alquiler" />
+                <field name="comment">Empleado que gestiona el alquiler de los vehiculos</field>
+                 <!-- Administradores tambien son miembros del grupo usuario -->
+                <field name="implied_ids" eval="[(4, ref('group_alquiler_usuario'))]" />
+                 <!-- Añadido al usuario Administrador de ODOO -->
+                <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]" />
             </record>
         </data>
     </odoo>
-</xml>

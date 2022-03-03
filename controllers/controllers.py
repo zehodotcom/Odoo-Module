@@ -46,4 +46,3 @@ class vehiculo(models.Model):
 
     vehiculo_ids = fields.Many2many(
        'alquiler.alquiler', string='Alquiler')
-       
