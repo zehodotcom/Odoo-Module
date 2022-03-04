@@ -1,0 +1,62 @@
+<odoo>
+    <record id="alquiler.cliente_report" model="ir.actions.report">
+        <field name="name">Informe de cliente</field>
+        <field name="model">alquiler.cliente</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">alquiler.cliente_report_view</field>
+        <field name="report_file">alquiler.cliente_report</field>
+        <field name="binding_model_id" ref="model_alquiler_aparcamiento" />
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="cliente_report_view">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="cliente">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 t-field="cliente.name" />
+                       <p>Numero de plazas: <span t-field="cliente.name"/>
+                    </p>
+                        <h3>Alquileres:</h3>
+                    <!--    <ul>
+                            <t t-foreach="cliente.alquiler_id" t-as="alquiler">
+                                <li>
+                                    <span t-field="alquiler.name"/>
+                                </li>
+                            </t>
+                        </ul> -->
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Fecha entrega</th>
+                                    <th>Fecha devolucion</th>
+                                    <th>Devuelto</th>
+                                    <th>Precio</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="cliente.alquiler_id" t-as="alquileres">
+                                    <tr>
+                                        <td>
+                                            <span t-field="alquiler.fecha_entrega"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="alquiler.fecha_devolucion"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="alquiler.devuelto"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="alquiler.precio"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

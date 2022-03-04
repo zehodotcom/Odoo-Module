@@ -1,6 +1,6 @@
 <odoo>
-    <data>
-<!--
+  <data>
+    <!--
           <record id="object0" model="alquiler.alquiler">
             <field name="name">Object 0</field>
             <field name="value">0</field>
@@ -26,5 +26,77 @@
             <field name="value">40</field>
           </record>
 -->
-    </data>
+    <record id="cliente1" model="alquiler.cliente">
+      <field name="name">Pedro</field>
+      <field name="apellidos">Jiménez Martínez</field>
+      <field name="telefono">666777888</field>
+      <field name="dni">11112233X</field>
+      <field name="edad">40</field>
+      <field name="direccion">c/ La Unión 62, 4B</field>
+      <field name="email">pedrojm@gmail.com</field>
+    </record>
+
+    <record id="cliente2" model="alquiler.cliente">
+      <field name="name">María</field>
+      <field name="apellidos">Yañez Arroyo</field>
+      <field name="telefono">774777889</field>
+      <field name="dni">33116273B</field>
+      <field name="edad">25</field>
+      <field name="direccion">Avenida Los Guindos 33, 3C</field>
+      <field name="email">mya@gmail.com</field>
+    </record>
+
+    <record id="vehiculo1" model="alquiler.vehiculo">
+      <field name="name">0023DHN</field>
+      <field name="modelo">Seat Ibiza 1.9 64CV</field>
+      <field name="construido">2012</field>
+      <field name="consumo">6.3</field>
+      <field name="descripcion">Buen estado</field>
+    </record>
+
+    <record id="vehiculo2" model="alquiler.vehiculo">
+      <field name="name">7843BCN</field>
+      <field name="modelo">Honda Civic 2.0 100CV</field>
+      <field name="construido">2014</field>
+      <field name="consumo">7.0</field>
+      <field name="descripcion">Buen estado</field>
+    </record>
+
+    <record id="vehiculo3" model="alquiler.vehiculo">
+      <field name="name">1283CCB</field>
+      <field name="modelo">Renault Trafic 2.1 120CV</field>
+      <field name="construido">2013</field>
+      <field name="consumo">7.2</field>
+      <field name="descripcion">Buen estado</field>
+      <field name="cliente_ids " ref="cliente2" />
+    </record>
+
+    <record id="vehiculo4" model="alquiler.vehiculo">
+      <field name="name">3311HTV</field>
+      <field name="modelo">Nissan Qashqai 140CV</field>
+      <field name="construido">2020</field>
+      <field name="consumo">7.4</field>
+      <field name="descripcion">Como nuevo</field>
+      <field name="cliente_ids " ref="cliente1" />
+    </record>
+
+    <record id="alquiler1" model="alquiler.alquiler">
+      <field name="fecha_entrega">03/08/2022</field>
+      <field name="fecha_devolucion">03/10/2022</field>
+      <field name="devuelto">False</field>
+      <field name="precio">310€</field>
+      <field name="cliente_ids" ref="cliente1" />
+      <field name="vehiculo_ids" ref="vehiculo4" />
+    </record>
+
+    <record id="alquiler2" model="alquiler.alquiler">
+      <field name="fecha_entrega">03/09/2022</field>
+      <field name="fecha_devolucion">03/11/2022</field>
+      <field name="devuelto">False</field>
+      <field name="precio">350€</field>
+      <field name="cliente_ids" ref="cliente2" />
+      <field name="vehiculo_ids" ref="vehiculo3" />
+    </record>
+
+  </data>
 </odoo>

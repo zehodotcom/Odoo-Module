@@ -205,7 +205,7 @@
     </record>
 
     <!-- Top menu item -->
-    <menuitem name="Alquiler" id="alquiler.menu_root" />
+    <menuitem name="Alquiler" id="alquiler.menu_root" web_icon="alquiler,static/description/icon.png"/>
 F
     <!-- menu categories -->
     <menuitem name="Cliente" id="alquiler.cliente_menu" parent="alquiler.menu_root" action="alquiler.cliente_action_window" />

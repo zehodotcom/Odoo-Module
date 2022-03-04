@@ -27,6 +27,8 @@
         'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
+        'report/alquiler_cliente_report.xml',
+        'data/alquiler_data.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
